@@ -1,0 +1,28 @@
+version: '2.1'
+
+services:
+    applications:
+        image: hello-world
+        volumes:
+            - ../.:/var/www
+        networks:
+            - web
+    node:
+        build:
+            context: ./node
+            args:
+                - STRICT_SSL=false
+                - GULP=true
+        volumes_from:
+            - applications
+        ports:
+            - "3000:7001"
+        networks:
+            - web
+        command: npm run dev
+volumes:
+    node:
+        driver: local
+networks:
+    web:
+        driver: "bridge"
