@@ -8,9 +8,6 @@
     <title>{% block title %}egg - HackerNews{% endblock %}</title>
   </head>
   <body>
-    <div id="itranslate" style="position:fixed;z-index:100;right:0;">
-        {% include "./translate.tpl" %}
-    </div>
     <div id="wrapper">
       <div id="header">
         <a id="yc" href="http://www.ycombinator.com"><img src="https://news.ycombinator.com/y18.gif"></a>
